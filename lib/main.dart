@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'dart:math';
-
+import 'package:bmicalculator/SecondPage.dart';
 
 void main() {
   runApp(const MyApp());
@@ -195,6 +195,8 @@ class _MyHomePageState extends State<MyHomePage> {
             color: Colors.pink,
             child: MaterialButton(
               onPressed: (){
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context)=> SecondPage(result: result,)));
                 setState(() {
                   result= weight / pow(height/100, 2);
                 });
@@ -210,24 +212,6 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
           ),
 
-
-          Container (
-          width: 400,
-          height: 55.0,
-          color: Colors.green,
-
-             child: Row(
-             mainAxisAlignment: MainAxisAlignment.center,
-
-                children: [Text("BMI: ${(result).round()}",
-                            style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 25.0,
-                            ),
-                           ),
-                          ],
-                        ),
-                     ),
         ],
       ),
     );
